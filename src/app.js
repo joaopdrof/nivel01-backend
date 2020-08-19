@@ -11,23 +11,42 @@ app.use(cors());
 const repositories = [];
 
 app.get("/repositories", (request, response) => {
-  // TODO
+  const query = request.query;
+
+  console.log(query);
+
+  return response.json([
+    'Repositorie 1',
+    'Repositorie 2',
+  ]);
 });
 
 app.post("/repositories", (request, response) => {
-  // TODO
+  return response.json([
+    'Repositorie 1',
+    'Repositorie 2',
+  ]);
 });
 
 app.put("/repositories/:id", (request, response) => {
-  // TODO
+  return response.json([
+    'Repositorie 1',
+    'Repositorie 2',
+  ]);
 });
 
 app.delete("/repositories/:id", (request, response) => {
-  // TODO
+  return response.json([
+    'Repositorie 1',
+    'Repositorie 2',
+  ]);
 });
 
 app.post("/repositories/:id/like", (request, response) => {
-  // TODO
+  return response.json([
+    'Repositorie 1',
+    'Repositorie 2',
+  ]);
 });
 
 module.exports = app;
