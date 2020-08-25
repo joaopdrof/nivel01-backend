@@ -12,9 +12,6 @@ app.use(cors());
 const repositories = [];
 
 app.get("/repositories", (request, response) => {
-  // const query = request.query;
-
-  // console.log(query);
 
   return response.json(repositories);
 });
@@ -39,21 +36,23 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({ error: 'Project not found.'})
   }
 
-  // const repositorie = {
-  //   id,
-  //   title,
-  //   url,
-  //   techs,
-  // };
+  const repositorie = {
+    id,
+    title,
+    url,
+    techs,
+    likes: repositories[repositorieIndex].likes,
+  };
 
-  // repositories[repositorieIndex] = repositorie;
+  repositories[repositorieIndex] = repositorie;
 
-  const editedRepo = { ...repositories[repositorieIndex], title, url, techs };
-  repositories[repositorieIndex] = editedRepo;
+  return response.json(repositorie);
 
-  return response.json(editedRepo);
+  // const editedRepo = { ...repositories[repositorieIndex], title, url, techs };
+  // repositories[repositorieIndex] = editedRepo;
 
-  // return response.json(repositorie);
+  // return response.json(editedRepo);
+
 });
 
 app.delete("/repositories/:id", (request, response) => {
